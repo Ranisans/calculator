@@ -10,7 +10,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = (env, args) => {
   const config = {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist'),
@@ -29,7 +29,7 @@ module.exports = (env, args) => {
           ],
         },
         {
-          test: /\.(js)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: ['babel-loader', 'eslint-loader'],
         },
@@ -75,6 +75,9 @@ module.exports = (env, args) => {
         },
       ],
     },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'bundle.css',
@@ -90,7 +93,7 @@ module.exports = (env, args) => {
         inject: true,
       }),
       new webpack.LoaderOptionsPlugin({
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         options: {
           eslint: {
             configFile: path.resolve(__dirname, '.eslintrc'), // this is my helper for resolving paths
