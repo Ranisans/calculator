@@ -3,9 +3,11 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 const StyledInput = styled.div`
-  width: 100%;
+  width: 300px;
   height: 30px;
   display: flex;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 
   div {
     display: ${(props) => (props.sign ? 'flex' : 'none')};
@@ -13,6 +15,7 @@ const StyledInput = styled.div`
     width:  30px;
     align-items: center;
     justify-content: center;
+    background-color: lightgray;
   }
 
   input {
@@ -20,6 +23,7 @@ const StyledInput = styled.div`
     height: 100%;
     box-sizing: border-box;
     font-size: 1.1rem;
+    border: none;
     text-align: ${(props) => (props.isNumber ? 'right' : 'center')};
   }
 `;

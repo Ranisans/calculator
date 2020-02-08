@@ -10,8 +10,9 @@ const StyledIcon = styled.div`
   font-size: 0.65rem;
   text-align: center;
   font-weight: 400;
+  margin-left: 5px;
 
-  top:5px;
+  bottom: 5px;
 
   width: 10px;
   height: 10px;
