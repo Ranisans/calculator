@@ -1,0 +1,57 @@
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+
+const StyledInput = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+
+  div {
+    display: ${(props) => (props.sign ? 'flex' : 'none')};
+    height: 100%;
+    width:  30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    text-align: ${(props) => (props.isNumber ? 'right' : 'center')};
+  }
+`;
+
+const Input = ({ sign = null, isNumber = false, callback }) => {
+  const [value, setValue] = useState('');
+
+  const inputHandler = (e) => {
+    callback(e.target.value);
+    setValue(e.target.value);
+  };
+
+  return (
+    <StyledInput sign={sign} isNumber={isNumber}>
+      <div>{sign}</div>
+      <input
+        type={isNumber ? 'number' : 'text'}
+        onChange={inputHandler}
+        value={value}
+      />
+    </StyledInput>
+  );
+};
+
+Input.propTypes = {
+  sign: PropTypes.string,
+  isNumber: PropTypes.bool,
+  callback: PropTypes.func.isRequired,
+};
+Input.defaultProps = {
+  sign: null,
+  isNumber: false,
+};
+
+export default Input;
