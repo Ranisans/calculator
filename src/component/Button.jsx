@@ -12,26 +12,27 @@ const StyledButton = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 1px solid lightgray;
 `;
 
 
 const Button = (
   {
-    id, value, activeId, callback,
+    id, text, activeId, callback,
   },
 ) => (
   <StyledButton
     active={id === activeId}
     onClick={() => callback(id)}
   >
-    <span>{value}</span>
+    <span>{text}</span>
   </StyledButton>
 );
 
 Button.propTypes = {
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  activeId: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  activeId: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
 };
 
