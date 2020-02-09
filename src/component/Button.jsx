@@ -13,6 +13,7 @@ const StyledButton = styled.div`
   justify-content: center;
   cursor: pointer;
   border: 1px solid lightgray;
+  box-sizing: border-box;
 `;
 
 
