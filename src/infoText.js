@@ -16,7 +16,23 @@ const creditScoreInfo = `Your approximate credit score is used to personalize yo
  A good credit score is typically between 700 and 750, and an excellent credit score is typically
   above 750.`;
 
+const MSRPInfo = 'The selling price of the new or used vehicle for monthly loan payment calculation.';
+
+const vehicleInfo = 'Your car\'s name.';
+
+const monthlyPaymentInfo = 'Estimated monthly payment';
+
+const taxesInfo = 'Sales tax for the selected zip code applied to the sale price.';
+
+const dealerInfo = 'Name of car dealer';
+
+const dealerPhoneInfo = 'Phone number of the dealer selling the car';
+
+const dealerRatingInfo = 'Car Dealer Rating';
+
 export {
   tradeInInfo, downPaymentInfo, APRInfo, leaseTermInfo,
-  mileagesInfo, creditScoreInfo,
+  mileagesInfo, creditScoreInfo, MSRPInfo, vehicleInfo,
+  monthlyPaymentInfo, taxesInfo, dealerInfo, dealerPhoneInfo,
+  dealerRatingInfo,
 };
