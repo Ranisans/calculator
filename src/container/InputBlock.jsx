@@ -25,7 +25,10 @@ InputBlock.propTypes = {
   text: PropTypes.string.isRequired,
   infoText: PropTypes.string.isRequired,
   sign: PropTypes.string,
-  initialValue: PropTypes.string,
+  initialValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   callback: PropTypes.func.isRequired,
 };
 InputBlock.defaultProps = {

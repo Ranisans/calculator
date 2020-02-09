@@ -6,6 +6,8 @@ const StyledInput = styled.div`
   width: 300px;
   height: 30px;
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   border: 1px solid lightgray;
   border-radius: 5px;
 
@@ -50,7 +52,10 @@ const Input = ({ sign = null, initialValue = '', callback }) => {
 
 Input.propTypes = {
   sign: PropTypes.string,
-  initialValue: PropTypes.string,
+  initialValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   callback: PropTypes.func.isRequired,
 };
 Input.defaultProps = {
