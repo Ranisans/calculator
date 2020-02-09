@@ -28,8 +28,8 @@ const StyledInput = styled.div`
   }
 `;
 
-const Input = ({ sign = null, callback }) => {
-  const [value, setValue] = useState('');
+const Input = ({ sign = null, initialValue = '', callback }) => {
+  const [value, setValue] = useState(initialValue);
 
   const inputHandler = (e) => {
     callback(e.target.value);
@@ -50,10 +50,12 @@ const Input = ({ sign = null, callback }) => {
 
 Input.propTypes = {
   sign: PropTypes.string,
+  initialValue: PropTypes.string,
   callback: PropTypes.func.isRequired,
 };
 Input.defaultProps = {
   sign: null,
+  initialValue: '',
 };
 
 export default Input;
