@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const StyledSelect = styled.select`
   width: 150px;
@@ -22,10 +23,30 @@ const StyledSelect = styled.select`
   background-repeat: no-repeat;   
 `;
 
-const Select = ({ options, callback }) => (
-  <StyledSelect onChange={(e) => callback(e.target.value)}>
-    {options.map((el) => <option key={el.value} value={el.value}>{el.text}</option>)}
-  </StyledSelect>
-);
+const Select = ({ options, initialValue = 1, callback }) => {
+  const [currentValue, setCurrentValue] = useState(initialValue);
+  const changeHandler = (e) => {
+    setCurrentValue(e.target.value);
+    callback(e.target.value);
+  };
+  return (
+    <StyledSelect onChange={changeHandler} value={currentValue}>
+      {options.map((el) => <option key={el.value} value={el.value}>{el.text}</option>)}
+    </StyledSelect>
+  );
+};
+
+Select.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    text: PropTypes.string,
+  })).isRequired,
+  initialValue: PropTypes.number,
+  callback: PropTypes.func.isRequired,
+};
+
+Select.defaultProps = {
+  initialValue: 1,
+};
 
 export default Select;

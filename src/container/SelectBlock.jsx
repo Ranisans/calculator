@@ -9,6 +9,7 @@ const SelectBlock = ({
   text,
   infoText,
   option,
+  initialValue = 1,
   callback,
 }) => (
   <StyledBlock>
@@ -16,7 +17,7 @@ const SelectBlock = ({
       {text}
       <InfoIcon infoText={infoText} />
     </div>
-    <Select options={option} callback={callback} />
+    <Select options={option} initialValue={initialValue} callback={callback} />
   </StyledBlock>
 );
 
@@ -27,7 +28,12 @@ SelectBlock.propTypes = {
     text: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
   })).isRequired,
+  initialValue: PropTypes.number,
   callback: PropTypes.func.isRequired,
+};
+
+SelectBlock.defaultProps = {
+  initialValue: 1,
 };
 
 export default SelectBlock;
