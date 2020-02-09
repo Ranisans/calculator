@@ -22,7 +22,10 @@ const Paragraph = ({ sign = '', value }) => (
 
 Paragraph.propTypes = {
   sign: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 Paragraph.defaultProps = {

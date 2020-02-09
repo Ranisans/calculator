@@ -24,7 +24,10 @@ TextBlock.propTypes = {
   text: PropTypes.string.isRequired,
   infoText: PropTypes.string.isRequired,
   sign: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 TextBlock.defaultProps = {
   sign: '',
