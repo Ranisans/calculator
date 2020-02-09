@@ -24,11 +24,11 @@ const StyledInput = styled.div`
     box-sizing: border-box;
     font-size: 1.1rem;
     border: none;
-    text-align: ${(props) => (props.isNumber ? 'right' : 'center')};
+    text-align: ${(props) => (props.sign ? 'right' : 'center')};
   }
 `;
 
-const Input = ({ sign = null, isNumber = false, callback }) => {
+const Input = ({ sign = null, callback }) => {
   const [value, setValue] = useState('');
 
   const inputHandler = (e) => {
@@ -37,10 +37,10 @@ const Input = ({ sign = null, isNumber = false, callback }) => {
   };
 
   return (
-    <StyledInput sign={sign} isNumber={isNumber}>
+    <StyledInput sign={sign}>
       <div>{sign}</div>
       <input
-        type={isNumber ? 'number' : 'text'}
+        type={sign ? 'number' : 'text'}
         onChange={inputHandler}
         value={value}
       />
@@ -50,12 +50,10 @@ const Input = ({ sign = null, isNumber = false, callback }) => {
 
 Input.propTypes = {
   sign: PropTypes.string,
-  isNumber: PropTypes.bool,
   callback: PropTypes.func.isRequired,
 };
 Input.defaultProps = {
   sign: null,
-  isNumber: false,
 };
 
 export default Input;
