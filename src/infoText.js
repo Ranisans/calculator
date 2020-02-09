@@ -8,4 +8,15 @@ const APRInfo = `
     APR stands for annual percentage rate, which refers to the interest you’re being charged to borrow money.
     APRs can be calculated as simple or compound interest, and rates can be fixed or variable.`;
 
-export { tradeInInfo, downPaymentInfo, APRInfo };
+const leaseTermInfo = 'months';
+
+const mileagesInfo = 'Expected miles driven each year. This will affect both residual value and finance terms.';
+
+const creditScoreInfo = `Your approximate credit score is used to personalize your payment.
+ A good credit score is typically between 700 and 750, and an excellent credit score is typically
+  above 750.`;
+
+export {
+  tradeInInfo, downPaymentInfo, APRInfo, leaseTermInfo,
+  mileagesInfo, creditScoreInfo,
+};
