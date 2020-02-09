@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 const StyledInput = styled.div`
-  width: 300px;
+  width: 250px;
   height: 30px;
   display: flex;
   align-items: flex-end;
