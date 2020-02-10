@@ -10,6 +10,7 @@ export const initialState = {
   tradeIn: 0,
   downPayment: 0,
   mileages: 0,
+  apr: 0,
   msrp: 0,
 };
 
