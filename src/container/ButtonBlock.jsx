@@ -3,36 +3,54 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 import Button from '../component/Button';
+import InfoIcon from '../component/InfoIcon';
 
 const StyledButtonBlock = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) => (props.buttons.map(() => '1fr '))};
   margin: 5px 7px;
-  height: 45px;
+
+  .buttons {
+    display: grid;
+    grid-template-columns: ${(props) => (props.buttons.map(() => '1fr '))};
+    height: 45px;
+  }
 `;
 
-const ButtonBlock = ({ buttons, defaultButton = 1, callback }) => {
+const ButtonBlock = ({
+  text, infoText, buttons, defaultButton = 1, callback,
+}) => {
   const [activeButton, setActiveButton] = useState(defaultButton);
   const buttonHandler = (id) => {
     setActiveButton(id);
     callback(id);
   };
+
+  const fontSize = 1; // in rem
+
   return (
     <StyledButtonBlock buttons={buttons}>
-      {buttons.map((button) => (
-        <Button
-          key={button.value}
-          id={button.value}
-          activeId={activeButton}
-          text={button.text}
-          callback={buttonHandler}
-        />
-      ))}
+      <div className="info">
+        {text}
+        <InfoIcon infoText={infoText} />
+      </div>
+      <div className="buttons">
+        {buttons.map((button) => (
+          <Button
+            key={button.value}
+            id={button.value}
+            activeId={activeButton}
+            text={button.text}
+            fontSize={fontSize}
+            callback={buttonHandler}
+          />
+        ))}
+      </div>
     </StyledButtonBlock>
   );
 };
 
 ButtonBlock.propTypes = {
+  text: PropTypes.string.isRequired,
+  infoText: PropTypes.string.isRequired,
   buttons: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,

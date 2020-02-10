@@ -7,7 +7,7 @@ const StyledButton = styled.div`
   width: 100%;
   color: ${(props) => (props.active ? '#FFF' : '#000')};
   background-color: ${(props) => (props.active ? '#0068bc' : '#FFF')};
-  font-size: 1.2rem;
+  font-size: ${(props) => (props.fontSize)}rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,10 +19,11 @@ const StyledButton = styled.div`
 
 const Button = (
   {
-    id, text, activeId, callback,
+    id, text, activeId, fontSize = 1.2, callback,
   },
 ) => (
   <StyledButton
+    fontSize={fontSize}
     active={id === activeId}
     onClick={() => callback(id)}
   >
@@ -35,6 +36,11 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
   activeId: PropTypes.number.isRequired,
   callback: PropTypes.func.isRequired,
+  fontSize: PropTypes.number,
+};
+
+Button.defaultProps = {
+  fontSize: 1.2,
 };
 
 export default Button;
