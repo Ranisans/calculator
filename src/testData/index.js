@@ -3,6 +3,8 @@ import infoCardMockData from './infoCardMockData';
 import loanDefaultData from './loanDefaultData';
 import leaseDefaultData from './leaseDefaultData';
 
-export {
+const mockData = {
   creditScoreData, infoCardMockData, loanDefaultData, leaseDefaultData,
 };
+
+export default mockData;
