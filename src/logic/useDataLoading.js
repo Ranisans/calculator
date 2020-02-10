@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import mockData from '../testData';
 import { changeScore, changeZip } from '../actions/paramsAction';
-import { changeMSRP } from '../actions/variablesAction';
+import { changeMSRP, changeMileages } from '../actions/variablesAction';
 import { changeLoanTerm, changeLeaseTerm } from '../actions/termsAction';
 
 const useDataLoading = () => {
@@ -38,6 +38,7 @@ const useDataLoading = () => {
     dictionary.leaseTerms = leaseDefaultData.termValues;
     dictionary.mileages = leaseDefaultData.mileagesValues;
     dispatch(changeLeaseTerm({ term: leaseDefaultData.leaseInitialTerm }));
+    dispatch(changeMileages({ value: leaseDefaultData.defaultMileage }));
     return dictionary;
   };
 
