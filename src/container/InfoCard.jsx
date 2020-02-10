@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import TextBlock from './TextBlock';
 import {
@@ -21,6 +22,18 @@ const InfoCard = ({
   dealerPhone,
   dealerRating,
 }) => {
+  const paramsState = useSelector((state) => state.params);
+  const termsState = useSelector((state) => state.terms);
+  const variablesState = useSelector((state) => state.variables);
+
+  useEffect(() => {
+    const data = { ...paramsState, ...termsState, ...variablesState };
+    Promise.resolve(data)
+      .then((result) => {
+        console.log('TCL: data', result);
+      });
+  }, [paramsState, termsState, variablesState]);
+
   const monthlyPayment = 0;
   const taxesAmount = 0;
 
