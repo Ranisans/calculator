@@ -12,7 +12,7 @@ export const initialState = {
 };
 
 export const termsReducer = (state = initialState, action) => {
-  switch (action.types) {
+  switch (action.type) {
     case CHANGE_CALCULATOR_TYPE:
       return {
         ...state,
