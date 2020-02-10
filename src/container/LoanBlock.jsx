@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import InputBlock from './InputBlock';
 import ButtonBlock from './ButtonBlock';
 
-import { tradeInInfo, downPaymentInfo, APRInfo } from '../infoText';
+import {
+  tradeInInfo, downPaymentInfo, APRInfo, leaseTermInfo, creditScoreInfo,
+} from '../infoText';
 import { changeZip, changeScore } from '../actions/paramsAction';
 import { changeLoanTerm } from '../actions/termsAction';
 import { changeTradeIn, changeDownPayment, changeAPR } from '../actions/variablesAction';
@@ -57,6 +59,8 @@ const LoanBlock = ({
         callback={zipHandler}
       />
       <ButtonBlock
+        text="Loan Term"
+        infoText={leaseTermInfo}
         buttons={loanTermValues}
         defaultButton={termsState.loanTerm}
         callback={loanTermHandler}
@@ -82,6 +86,8 @@ const LoanBlock = ({
         callback={aprHandler}
       />
       <ButtonBlock
+        text="Credit Score"
+        infoText={creditScoreInfo}
         buttons={creditScoreValues}
         defaultButton={paramsState.score}
         callback={creditScoreHandler}
