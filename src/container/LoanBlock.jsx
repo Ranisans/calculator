@@ -83,6 +83,7 @@ const LoanBlock = ({
         text="APR"
         infoText={APRInfo}
         sign="%"
+        initialValue={variablesState.apr}
         callback={aprHandler}
       />
       <ButtonBlock
