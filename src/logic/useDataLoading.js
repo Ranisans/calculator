@@ -30,6 +30,7 @@ const useDataLoading = () => {
     dictionary.dealerName = infoCardMockData.dealerName;
     dictionary.dealerPhone = infoCardMockData.dealerPhone;
     dictionary.dealerRating = infoCardMockData.dealerRating;
+    dictionary.MSRP = infoCardMockData.MSRP;
     dispatch(changeMSRP({ value: infoCardMockData.MSRP }));
 
     dictionary.loanTerms = loanDefaultData.termValues;
