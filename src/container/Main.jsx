@@ -9,6 +9,7 @@ import { LoanPosition, LeasePosition } from '../constants';
 import Button from '../component/Button';
 import LoanLeaseBlock from './LoanLeaseBlock';
 import { changeType } from '../actions/termsAction';
+import InfoCard from './InfoCard';
 
 const StyledAppBlock = styled.div`
   display: grid;
@@ -76,7 +77,15 @@ const Main = () => {
         </StyledLoanLeaseMenu>
         <LoanLeaseBlock props={data} />
       </StyledLoanLease>
-      <StyledInfoCard />
+      <StyledInfoCard>
+        <InfoCard
+          MSRP={data.MSRP}
+          vehicle={data.vehicleName}
+          dealerName={data.dealerName}
+          dealerPhone={data.dealerPhone}
+          dealerRating={data.dealerRating}
+        />
+      </StyledInfoCard>
     </StyledAppBlock>
   );
 };
