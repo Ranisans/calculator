@@ -2,6 +2,7 @@ import {
   CHANGE_TRADE_IN,
   CHANGE_DOWN_PAYMENT,
   CHANGE_MILEAGES,
+  CHANGE_APR,
   CHANGE_MSRP,
 } from '../actions/variablesAction';
 
@@ -28,6 +29,11 @@ export const variablesReducer = (state = initialState, action) => {
       return {
         ...state,
         mileages: action.value,
+      };
+    case CHANGE_APR:
+      return {
+        ...state,
+        apr: action.value,
       };
     case CHANGE_MSRP:
       return {

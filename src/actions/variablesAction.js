@@ -1,6 +1,7 @@
 export const CHANGE_TRADE_IN = 'CHANGE_TRADE_IN';
 export const CHANGE_DOWN_PAYMENT = 'CHANGE_DOWN_PAYMENT';
 export const CHANGE_MILEAGES = 'CHANGE_MILEAGES';
+export const CHANGE_APR = 'CHANGE_APR';
 export const CHANGE_MSRP = 'CHANGE_MSRP';
 
 
@@ -21,6 +22,13 @@ export const changeDownPayment = ({ value }) => (
 export const changeMileages = ({ value }) => (
   {
     type: CHANGE_MILEAGES,
+    value,
+  }
+);
+
+export const changeAPR = ({ value }) => (
+  {
+    type: CHANGE_APR,
     value,
   }
 );
