@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 const StyledParagraph = styled.div`
-  width: 300px;
   height: 30px;
   margin: 0;
 
