@@ -47,7 +47,6 @@ const LoanBlock = ({
     dispatch(changeScore({ score: parseInt(creditScoreNumber, 10) }));
   };
 
-  console.log('TCL: termsState.loanTerm', termsState);
   return (
     <StyledLoad>
       <InputBlock

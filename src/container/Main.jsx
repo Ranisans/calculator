@@ -14,7 +14,7 @@ const StyledAppBlock = styled.div`
   display: grid;
   grid-template-columns: 450px auto;
   width: 850px;
-  height: 385px;
+  height: 455px;
   margin: auto;
   border: 1px solid gray;
 `;
