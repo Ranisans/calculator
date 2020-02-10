@@ -7,7 +7,7 @@ const mockData = {
     { text: '78', value: 78 },
     { text: '84', value: 84 },
   ],
-  leaseInitialTerm: 24,
+  loanInitialTerm: 24,
 };
 
 export default mockData;

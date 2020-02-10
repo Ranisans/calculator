@@ -33,7 +33,7 @@ const useDataLoading = () => {
     dispatch(changeMSRP({ value: infoCardMockData.MSRP }));
 
     dictionary.loanTerms = loanDefaultData.termValues;
-    dispatch(changeLoanTerm({ term: loanDefaultData.leaseInitialTerm }));
+    dispatch(changeLoanTerm({ term: loanDefaultData.loanInitialTerm }));
 
     dictionary.leaseTerms = leaseDefaultData.termValues;
     dictionary.mileages = leaseDefaultData.mileagesValues;
