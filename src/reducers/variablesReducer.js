@@ -12,7 +12,7 @@ export const initialState = {
   msrp: 0,
 };
 
-export const calculationReducer = (state = initialState, action) => {
+export const variablesReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_TRADE_IN:
       return {
