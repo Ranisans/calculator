@@ -16,7 +16,7 @@ import {
 const StyledLease = styled.div`
   display: grid;
   margin-top: 10px;
-  grid-template-rows: 40px 55px 55px 55px 55px 55px;
+  grid-template-rows: 40px 65px 65px 65px 65px 65px;
   
   align-items: center;
 `;
