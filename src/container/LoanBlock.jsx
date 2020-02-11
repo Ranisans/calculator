@@ -12,6 +12,7 @@ import {
 import { changeZip, changeScore } from '../actions/paramsAction';
 import { changeLoanTerm } from '../actions/termsAction';
 import { changeTradeIn, changeDownPayment, changeAPR } from '../actions/variablesAction';
+import maxDiscountCalculation from '../logic/maxDiscountCalculation';
 
 const StyledLoad = styled.div`
   display: grid;
@@ -49,6 +50,8 @@ const LoanBlock = ({
     dispatch(changeScore({ score: parseInt(creditScoreNumber, 10) }));
   };
 
+  const maxDiscount = maxDiscountCalculation(variablesState.msrp);
+
   return (
     <StyledLoad>
       <InputBlock
@@ -70,12 +73,16 @@ const LoanBlock = ({
         infoText={tradeInInfo}
         sign="$"
         initialValue={variablesState.tradeIn}
+        maxValue={maxDiscount}
+        errorMessage={`Max value ${maxDiscount}`}
         callback={tradeInHandler}
       />
       <InputBlock
         text="Down Payment"
         infoText={downPaymentInfo}
         sign="$"
+        maxValue={maxDiscount}
+        errorMessage={`Max value ${maxDiscount}`}
         initialValue={variablesState.downPayment}
         callback={downPaymentHandler}
       />

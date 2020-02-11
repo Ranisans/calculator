@@ -11,6 +11,7 @@ import { changeLeaseTerm } from '../actions/termsAction';
 import {
   tradeInInfo, downPaymentInfo, leaseTermInfo, mileagesInfo, creditScoreInfo,
 } from '../infoText';
+import maxDiscountCalculation from '../logic/maxDiscountCalculation';
 
 
 const StyledLease = styled.div`
@@ -50,6 +51,8 @@ const LeaseBlock = ({
   const termsState = useSelector((state) => state.terms);
   const paramsState = useSelector((state) => state.params);
 
+  const maxDiscount = maxDiscountCalculation(variablesState.msrp);
+
   return (
     <StyledLease>
       <InputBlock
@@ -64,6 +67,8 @@ const LeaseBlock = ({
         infoText={tradeInInfo}
         sign="$"
         initialValue={variablesState.tradeIn}
+        maxValue={maxDiscount}
+        errorMessage={`Max value ${maxDiscount}`}
         callback={tradeInHandler}
       />
       <InputBlock
@@ -71,6 +76,8 @@ const LeaseBlock = ({
         infoText={downPaymentInfo}
         sign="$"
         initialValue={variablesState.downPayment}
+        maxValue={maxDiscount}
+        errorMessage={`Max value ${maxDiscount}`}
         callback={downPaymentHandler}
       />
       <SelectBlock
