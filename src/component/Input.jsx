@@ -30,7 +30,9 @@ const StyledInput = styled.div`
   }
 `;
 
-const Input = ({ sign = null, initialValue = '', callback }) => {
+const Input = ({
+  sign = null, initialValue = '', callback, onBlur,
+}) => {
   const [value, setValue] = useState(initialValue);
 
   const inputHandler = (e) => {
@@ -45,6 +47,7 @@ const Input = ({ sign = null, initialValue = '', callback }) => {
         type={sign ? 'number' : 'text'}
         onChange={inputHandler}
         value={value}
+        onBlur={onBlur}
       />
     </StyledInput>
   );
