@@ -87,7 +87,7 @@ module.exports = (env, args) => {
         filename: 'index.html',
       }),
       new FaviconsWebpackPlugin({
-        logo: './public/sunny.png',
+        logo: './public/favicon.png',
         cache: true,
         mode: 'light',
         inject: true,
