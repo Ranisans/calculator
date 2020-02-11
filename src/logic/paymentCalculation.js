@@ -4,7 +4,7 @@ const loanCalculation = ({ data, creditRate }) => {
   if (data.msrp * data.loanTerm * data.score * data.apr === 0) { return 0; }
   const result = (
     (data.msrp - data.tradeIn - data.downPayment)
-   * creditRate[data.score] * data.apr
+   * creditRate[data.score] * (1 + data.apr / 100)
   ) / data.loanTerm;
 
   return result;
