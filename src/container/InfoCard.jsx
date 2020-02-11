@@ -26,6 +26,7 @@ const InfoCard = ({
   creditRate,
 }) => {
   const [monthlyPayment, setMonthPayment] = useState(0);
+  const [isCalculating, setIsCalculating] = useState(false);
   const taxesAmount = 0;
 
   const paramsState = useSelector((state) => state.params);
@@ -46,9 +47,11 @@ const InfoCard = ({
       setMonthPayment(0);
       return;
     }
+    setIsCalculating(true);
     Promise.resolve(data)
       .then((promiseData) => paymentCalculation({ data: promiseData, creditRate }))
       .then((result) => {
+        setIsCalculating(false);
         setMonthPayment(result);
       });
   }, [paramsState, termsState, variablesState]);
@@ -70,6 +73,7 @@ const InfoCard = ({
         text="Monthly payment"
         infoText={monthlyPaymentInfo}
         sign="$"
+        isCalculating={isCalculating}
         value={monthlyPayment}
       />
       <TextBlock
