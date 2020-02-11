@@ -50,7 +50,7 @@ const InputBlock = ({
       <Input
         sign={sign}
         initialValue={initialValue}
-        callback={maxValue ? inputHandler : callback}
+        callback={maxValue ? inputHandler : setValue}
         onBlur={onBlur}
       />
     </StyledBlock>
