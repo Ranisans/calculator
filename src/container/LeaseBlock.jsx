@@ -38,13 +38,13 @@ const LeaseBlock = ({
     dispatch(changeDownPayment({ value: downPaymentValue }));
   };
   const leaseTermHandler = (leaseTermValue) => {
-    dispatch(changeLeaseTerm({ term: parseInt(leaseTermValue, 10) }));
+    dispatch(changeLeaseTerm({ term: leaseTermValue }));
   };
   const mileagesHandler = (mileagesValue) => {
-    dispatch(changeMileages({ value: parseInt(mileagesValue, 10) }));
+    dispatch(changeMileages({ value: mileagesValue }));
   };
   const creditScoreHandler = (creditScoreNumber) => {
-    dispatch(changeScore({ score: parseInt(creditScoreNumber, 10) }));
+    dispatch(changeScore({ score: creditScoreNumber }));
   };
 
   const variablesState = useSelector((state) => state.variables);

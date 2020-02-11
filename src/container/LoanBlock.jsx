@@ -35,7 +35,7 @@ const LoanBlock = ({
     dispatch(changeZip({ value: newZip }));
   };
   const loanTermHandler = (leaseTermValue) => {
-    dispatch(changeLoanTerm({ term: parseInt(leaseTermValue, 10) }));
+    dispatch(changeLoanTerm({ term: leaseTermValue }));
   };
   const tradeInHandler = (tradeInValue) => {
     dispatch(changeTradeIn({ value: tradeInValue }));
@@ -47,7 +47,7 @@ const LoanBlock = ({
     dispatch(changeAPR({ value: aprValue }));
   };
   const creditScoreHandler = (creditScoreNumber) => {
-    dispatch(changeScore({ score: parseInt(creditScoreNumber, 10) }));
+    dispatch(changeScore({ score: creditScoreNumber }));
   };
 
   const maxDiscount = maxDiscountCalculation(variablesState.msrp);

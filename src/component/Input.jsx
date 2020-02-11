@@ -36,8 +36,12 @@ const Input = ({
   const [value, setValue] = useState(initialValue);
 
   const inputHandler = (e) => {
-    callback(e.target.value);
-    setValue(e.target.value);
+    let inputValue = e.target.value;
+    if (sign) {
+      inputValue = parseFloat(inputValue);
+    }
+    callback(inputValue);
+    setValue(inputValue);
   };
 
   return (

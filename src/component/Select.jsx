@@ -26,8 +26,9 @@ const StyledSelect = styled.select`
 const Select = ({ options, initialValue = 1, callback }) => {
   const [currentValue, setCurrentValue] = useState(initialValue);
   const changeHandler = (e) => {
-    setCurrentValue(e.target.value);
-    callback(e.target.value);
+    const value = parseInt(e.target.value, 10);
+    setCurrentValue(value);
+    callback(value);
   };
   return (
     <StyledSelect onChange={changeHandler} value={currentValue}>
