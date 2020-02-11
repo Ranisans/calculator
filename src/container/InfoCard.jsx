@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
@@ -8,6 +8,8 @@ import {
   MSRPInfo, vehicleInfo, monthlyPaymentInfo, taxesInfo,
   dealerInfo, dealerPhoneInfo, dealerRatingInfo,
 } from '../infoText';
+import { LoanPosition, LeasePosition } from '../constants';
+import paymentCalculation from '../logic/paymentCalculation';
 
 const StyledInfoCard = styled.div`
   display: grid;
@@ -21,21 +23,35 @@ const InfoCard = ({
   dealerName,
   dealerPhone,
   dealerRating,
+  creditRate,
 }) => {
+  const [monthlyPayment, setMonthPayment] = useState(0);
+  const taxesAmount = 0;
+
   const paramsState = useSelector((state) => state.params);
   const termsState = useSelector((state) => state.terms);
   const variablesState = useSelector((state) => state.variables);
 
   useEffect(() => {
     const data = { ...paramsState, ...termsState, ...variablesState };
+    if (data.calculatorType === LoanPosition
+      && data.msrp * data.loanTerm * data.score * data.apr === 0) {
+      setMonthPayment(0);
+      return;
+    }
+    if (
+      data.calculatorType === LeasePosition
+      && data.msrp * data.mileages * data.leaseTerm * data.score === 0
+    ) {
+      setMonthPayment(0);
+      return;
+    }
     Promise.resolve(data)
+      .then((promiseData) => paymentCalculation({ data: promiseData, creditRate }))
       .then((result) => {
-        console.log('TCL: data', result);
+        setMonthPayment(result);
       });
   }, [paramsState, termsState, variablesState]);
-
-  const monthlyPayment = 0;
-  const taxesAmount = 0;
 
   return (
     <StyledInfoCard>

@@ -84,6 +84,7 @@ const Main = () => {
           dealerName={data.dealerName}
           dealerPhone={data.dealerPhone}
           dealerRating={data.dealerRating}
+          creditRate={data.creditRate}
         />
       </StyledInfoCard>
     </StyledAppBlock>
