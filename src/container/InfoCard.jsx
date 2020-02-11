@@ -26,8 +26,8 @@ const InfoCard = ({
   creditRate,
 }) => {
   const [monthlyPayment, setMonthPayment] = useState(0);
+  const [taxesAmount, setTaxesAmount] = useState(0);
   const [isCalculating, setIsCalculating] = useState(false);
-  const taxesAmount = 0;
 
   const paramsState = useSelector((state) => state.params);
   const termsState = useSelector((state) => state.terms);
@@ -52,6 +52,12 @@ const InfoCard = ({
       .then((promiseData) => paymentCalculation({ data: promiseData, creditRate }))
       .then((result) => {
         setIsCalculating(false);
+        const taxes = paramsState.zipCode
+          .split('')
+          .filter((num) => num !== '0')
+          .map((num) => num * 11)
+          .join(' $, ');
+        setTaxesAmount(taxes);
         setMonthPayment(result);
       });
   }, [paramsState, termsState, variablesState]);
@@ -80,6 +86,7 @@ const InfoCard = ({
         text="Taxes"
         infoText={taxesInfo}
         sign="$"
+        isCalculating={isCalculating}
         value={taxesAmount}
       />
       <TextBlock
