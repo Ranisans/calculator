@@ -5,6 +5,7 @@ import mockData from '../testData';
 import { changeScore, changeZip } from '../actions/paramsAction';
 import { changeMSRP, changeMileages } from '../actions/variablesAction';
 import { changeLoanTerm, changeLeaseTerm } from '../actions/termsAction';
+import { loadStorage } from './localStorage';
 
 const useDataLoading = () => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,6 @@ const useDataLoading = () => {
     } = resultMockData;
     dictionary.creditScoreValues = creditScoreData.creditScoreValues;
     dictionary.creditRate = creditScoreData.creditRate;
-    dispatch(changeScore({ score: creditScoreData.defaultCreditScore }));
 
     dictionary.vehicleName = infoCardMockData.vehicleName;
     dictionary.dealerName = infoCardMockData.dealerName;
@@ -34,12 +34,17 @@ const useDataLoading = () => {
     dispatch(changeMSRP({ value: infoCardMockData.MSRP }));
 
     dictionary.loanTerms = loanDefaultData.termValues;
-    dispatch(changeLoanTerm({ term: loanDefaultData.loanInitialTerm }));
 
     dictionary.leaseTerms = leaseDefaultData.termValues;
     dictionary.mileages = leaseDefaultData.mileagesValues;
-    dispatch(changeLeaseTerm({ term: leaseDefaultData.leaseInitialTerm }));
-    dispatch(changeMileages({ value: leaseDefaultData.defaultMileage }));
+
+    if (loadStorage() === undefined) {
+      dispatch(changeLoanTerm({ term: loanDefaultData.loanInitialTerm }));
+      dispatch(changeScore({ score: creditScoreData.defaultCreditScore }));
+      dispatch(changeLeaseTerm({ term: leaseDefaultData.leaseInitialTerm }));
+      dispatch(changeMileages({ value: leaseDefaultData.defaultMileage }));
+    }
+
     return dictionary;
   };
 
