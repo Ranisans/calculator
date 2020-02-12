@@ -10,7 +10,7 @@ export const paramsReducer = (state = initialState, action) => {
     case CHANGE_ZIP:
       return {
         ...state,
-        zipCode: action.zipCode,
+        zipCode: action.zipCode.toString(),
       };
     default:
       return state;
