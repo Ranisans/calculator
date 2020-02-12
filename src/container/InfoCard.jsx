@@ -28,13 +28,14 @@ const InfoCard = ({
   const [monthlyPayment, setMonthPayment] = useState(0);
   const [taxesAmount, setTaxesAmount] = useState(0);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [isTaxesCalculating, setIsTaxesCalculating] = useState(false);
 
   const paramsState = useSelector((state) => state.params);
   const termsState = useSelector((state) => state.terms);
   const variablesState = useSelector((state) => state.variables);
 
   useEffect(() => {
-    const data = { ...paramsState, ...termsState, ...variablesState };
+    const data = { ...termsState, ...variablesState };
     if (data.calculatorType === LoanPosition
       && data.msrp * data.loanTerm * data.score * data.apr === 0) {
       setMonthPayment(0);
@@ -51,16 +52,29 @@ const InfoCard = ({
     Promise.resolve(data)
       .then((promiseData) => paymentCalculation({ data: promiseData, creditRate }))
       .then((result) => {
+        setMonthPayment(result);
         setIsCalculating(false);
-        const taxes = paramsState.zipCode
-          .split('')
+      });
+  }, [termsState, variablesState]);
+
+  useEffect(() => {
+    const { zipCode } = paramsState;
+    setIsTaxesCalculating(true);
+    Promise.resolve(zipCode)
+      .then((zip) => {
+        const taxes = zip.split('')
           .filter((num) => num !== '0')
           .map((num) => num * 11)
           .join(' $, ');
-        setTaxesAmount(taxes);
-        setMonthPayment(result);
+        return new Promise((resolve) => {
+          setTimeout(resolve, 500, taxes);
+        });
+      })
+      .then((result) => {
+        setTaxesAmount(result);
+        setIsTaxesCalculating(false);
       });
-  }, [paramsState, termsState, variablesState]);
+  }, [paramsState]);
 
   return (
     <StyledInfoCard>
@@ -86,7 +100,7 @@ const InfoCard = ({
         text="Taxes"
         infoText={taxesInfo}
         sign="$"
-        isCalculating={isCalculating}
+        isCalculating={isTaxesCalculating}
         value={taxesAmount}
       />
       <TextBlock
