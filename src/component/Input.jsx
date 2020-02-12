@@ -44,6 +44,12 @@ const Input = ({
     setValue(inputValue);
   };
 
+  const keyHandler = (event) => {
+    if (event.key === 'Enter') {
+      onBlur();
+    }
+  };
+
   return (
     <StyledInput sign={sign}>
       <div>{sign}</div>
@@ -51,6 +57,7 @@ const Input = ({
         type={sign ? 'number' : 'text'}
         onChange={inputHandler}
         value={value}
+        onKeyDown={keyHandler}
         onBlur={onBlur}
       />
     </StyledInput>
