@@ -63,6 +63,7 @@ Input.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  onBlur: PropTypes.func.isRequired,
   callback: PropTypes.func.isRequired,
 };
 Input.defaultProps = {

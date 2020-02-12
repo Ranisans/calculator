@@ -65,11 +65,15 @@ InputBlock.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  maxValue: PropTypes.number,
+  errorMessage: PropTypes.string,
   callback: PropTypes.func.isRequired,
 };
 InputBlock.defaultProps = {
   sign: '',
   initialValue: '',
+  maxValue: null,
+  errorMessage: null,
 };
 
 export default InputBlock;

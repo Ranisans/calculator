@@ -5,6 +5,7 @@
   "main": "src/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src",
     "clean": "del-cli dist",
     "build-dev": "webpack-dev-server --history-api-fallback --inline --progress --open --mode development",
     "build-prod": "npm run clean && webpack --progress --mode production",
