@@ -5,13 +5,14 @@ import {
   CHANGE_APR,
   CHANGE_MSRP,
 } from '../actions/variablesAction';
+import { defaultValue } from '../constants';
 
 export const initialState = {
-  tradeIn: 0,
-  downPayment: 0,
-  mileages: 0,
-  apr: 0,
-  msrp: 0,
+  tradeIn: defaultValue,
+  downPayment: defaultValue,
+  mileages: defaultValue,
+  apr: defaultValue,
+  msrp: defaultValue,
 };
 
 export const variablesReducer = (state = initialState, action) => {

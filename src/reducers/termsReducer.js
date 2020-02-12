@@ -3,12 +3,12 @@ import {
   CHANGE_LOAN_TERM,
   CHANGE_LEASE_TERM,
 } from '../actions/termsAction';
-import { LoanPosition } from '../constants';
+import { LoanPosition, defaultValue } from '../constants';
 
 export const initialState = {
   calculatorType: LoanPosition,
-  loanTerm: 0,
-  leaseTerm: 0,
+  loanTerm: defaultValue,
+  leaseTerm: defaultValue,
 };
 
 export const termsReducer = (state = initialState, action) => {

@@ -1,8 +1,9 @@
 import { CHANGE_ZIP, CHANGE_SCORE } from '../actions/paramsAction';
+import { defaultValue } from '../constants';
 
 export const initialState = {
-  zipCode: 0,
-  score: 0,
+  zipCode: defaultValue,
+  score: defaultValue,
 };
 
 export const paramsReducer = (state = initialState, action) => {
