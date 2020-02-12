@@ -5,7 +5,7 @@ import mockData from '../testData';
 import { changeScore, changeZip } from '../actions/paramsAction';
 import { changeMSRP, changeMileages } from '../actions/variablesAction';
 import { changeLoanTerm, changeLeaseTerm } from '../actions/termsAction';
-import { loadStorage } from './localStorage';
+import { persistedState } from '../store';
 
 const useDataLoading = () => {
   const [loading, setLoading] = useState(true);
@@ -38,7 +38,7 @@ const useDataLoading = () => {
     dictionary.leaseTerms = leaseDefaultData.termValues;
     dictionary.mileages = leaseDefaultData.mileagesValues;
 
-    if (loadStorage() === undefined) {
+    if (persistedState === undefined) {
       dispatch(changeLoanTerm({ term: loanDefaultData.loanInitialTerm }));
       dispatch(changeScore({ score: creditScoreData.defaultCreditScore }));
       dispatch(changeLeaseTerm({ term: leaseDefaultData.leaseInitialTerm }));

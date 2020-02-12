@@ -3,7 +3,7 @@ import { createStore } from 'redux';
 import rootReducer from './reducers/rootReducer';
 import { loadStorage, saveState } from './logic/localStorage';
 
-const persistedState = loadStorage();
+export const persistedState = loadStorage();
 
 const store = createStore(
   rootReducer,
