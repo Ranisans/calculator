@@ -1,9 +1,8 @@
-import { CHANGE_ZIP, CHANGE_SCORE } from '../actions/paramsAction';
+import { CHANGE_ZIP } from '../actions/paramsAction';
 import { defaultValue } from '../constants';
 
 export const initialState = {
   zipCode: defaultValue,
-  score: defaultValue,
 };
 
 export const paramsReducer = (state = initialState, action) => {
@@ -12,11 +11,6 @@ export const paramsReducer = (state = initialState, action) => {
       return {
         ...state,
         zipCode: action.zipCode,
-      };
-    case CHANGE_SCORE:
-      return {
-        ...state,
-        score: action.score,
       };
     default:
       return state;

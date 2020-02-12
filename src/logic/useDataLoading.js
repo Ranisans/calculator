@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import mockData from '../testData';
-import { changeScore, changeZip } from '../actions/paramsAction';
-import { changeMSRP, changeMileages } from '../actions/variablesAction';
+import { changeZip } from '../actions/paramsAction';
+import { changeMSRP, changeMileages, changeScore } from '../actions/variablesAction';
 import { changeLoanTerm, changeLeaseTerm } from '../actions/termsAction';
 import { persistedState } from '../store';
 

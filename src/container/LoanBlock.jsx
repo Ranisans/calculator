@@ -9,9 +9,11 @@ import ButtonBlock from './ButtonBlock';
 import {
   tradeInInfo, downPaymentInfo, APRInfo, leaseTermInfo, creditScoreInfo,
 } from '../infoText';
-import { changeZip, changeScore } from '../actions/paramsAction';
+import { changeZip } from '../actions/paramsAction';
 import { changeLoanTerm } from '../actions/termsAction';
-import { changeTradeIn, changeDownPayment, changeAPR } from '../actions/variablesAction';
+import {
+  changeTradeIn, changeDownPayment, changeAPR, changeScore,
+} from '../actions/variablesAction';
 import maxDiscountCalculation from '../logic/maxDiscountCalculation';
 
 const StyledLoad = styled.div`
@@ -97,7 +99,7 @@ const LoanBlock = ({
         text="Credit Score"
         infoText={creditScoreInfo}
         buttons={creditScoreValues}
-        defaultButton={paramsState.score}
+        defaultButton={variablesState.score}
         callback={creditScoreHandler}
       />
     </StyledLoad>

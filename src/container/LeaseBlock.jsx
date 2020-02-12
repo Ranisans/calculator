@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import InputBlock from './InputBlock';
 import SelectBlock from './SelectBlock';
-import { changeZip, changeScore } from '../actions/paramsAction';
-import { changeTradeIn, changeDownPayment, changeMileages } from '../actions/variablesAction';
+import { changeZip } from '../actions/paramsAction';
+import {
+  changeTradeIn, changeDownPayment, changeMileages, changeScore,
+} from '../actions/variablesAction';
 import { changeLeaseTerm } from '../actions/termsAction';
 import {
   tradeInInfo, downPaymentInfo, leaseTermInfo, mileagesInfo, creditScoreInfo,
@@ -98,7 +100,7 @@ const LeaseBlock = ({
         text="Credit Score"
         infoText={creditScoreInfo}
         option={creditScoreValues}
-        initialValue={paramsState.score}
+        initialValue={variablesState.score}
         callback={creditScoreHandler}
       />
     </StyledLease>

@@ -4,6 +4,7 @@ import {
   CHANGE_MILEAGES,
   CHANGE_APR,
   CHANGE_MSRP,
+  CHANGE_SCORE,
 } from '../actions/variablesAction';
 import { defaultValue } from '../constants';
 
@@ -13,6 +14,7 @@ export const initialState = {
   mileages: defaultValue,
   apr: defaultValue,
   msrp: defaultValue,
+  score: defaultValue,
 };
 
 export const variablesReducer = (state = initialState, action) => {
@@ -41,6 +43,11 @@ export const variablesReducer = (state = initialState, action) => {
       return {
         ...state,
         msrp: action.value,
+      };
+    case CHANGE_SCORE:
+      return {
+        ...state,
+        score: action.score,
       };
     default:
       return state;

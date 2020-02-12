@@ -3,6 +3,7 @@ export const CHANGE_DOWN_PAYMENT = 'CHANGE_DOWN_PAYMENT';
 export const CHANGE_MILEAGES = 'CHANGE_MILEAGES';
 export const CHANGE_APR = 'CHANGE_APR';
 export const CHANGE_MSRP = 'CHANGE_MSRP';
+export const CHANGE_SCORE = 'CHANGE_SCORE';
 
 
 export const changeTradeIn = ({ value }) => (
@@ -37,5 +38,13 @@ export const changeMSRP = ({ value }) => (
   {
     type: CHANGE_MSRP,
     value,
+  }
+);
+
+
+export const changeScore = ({ score }) => (
+  {
+    type: CHANGE_SCORE,
+    score,
   }
 );
