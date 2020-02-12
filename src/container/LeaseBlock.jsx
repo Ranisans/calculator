@@ -29,7 +29,7 @@ const LeaseBlock = ({
 }) => {
   const dispatch = useDispatch();
   const zipHandler = (newZip) => {
-    dispatch(changeZip({ value: newZip }));
+    dispatch(changeZip({ zipCode: newZip }));
   };
   const tradeInHandler = (tradeInValue) => {
     dispatch(changeTradeIn({ value: tradeInValue }));

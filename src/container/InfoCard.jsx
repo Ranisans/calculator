@@ -114,6 +114,7 @@ InfoCard.propTypes = {
   dealerName: PropTypes.string.isRequired,
   dealerPhone: PropTypes.string.isRequired,
   dealerRating: PropTypes.string.isRequired,
+  creditRate: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };
 
 

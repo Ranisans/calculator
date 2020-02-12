@@ -32,7 +32,7 @@ const LoanBlock = ({
   const paramsState = useSelector((state) => state.params);
 
   const zipHandler = (newZip) => {
-    dispatch(changeZip({ value: newZip }));
+    dispatch(changeZip({ zipCode: newZip }));
   };
   const loanTermHandler = (leaseTermValue) => {
     dispatch(changeLoanTerm({ term: leaseTermValue }));
