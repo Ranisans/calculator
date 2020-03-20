@@ -2,7 +2,7 @@ import { CHANGE_ZIP } from '../actions/paramsAction';
 import { defaultValue } from '../constants';
 
 export const initialState = {
-  zipCode: defaultValue,
+  zipCode: defaultValue.toString(),
 };
 
 export const paramsReducer = (state = initialState, action) => {

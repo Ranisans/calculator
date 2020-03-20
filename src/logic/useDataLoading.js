@@ -52,7 +52,10 @@ const useDataLoading = () => {
     Promise.resolve(mockData).then((resultMockData) => {
       const dictionary = fillDictionary(resultMockData);
       setData(dictionary);
-    }).then(() => fetch(`https://ipinfo.io/json?token=${accessToken}`))
+    }).then(() => fetch(`https://cors-anywhere.herokuapp.com/https://ipinfo.io/json?token=${accessToken}`, {
+      mode: 'cors',
+      headers: { 'Access-Control-Allow-Origin': '*', Accept: 'application/json' },
+    }))
       .then((result) => result.json())
       .then((result) => {
         const { postal } = result;
