@@ -23,9 +23,11 @@ const Button = (
   },
 ) => (
   <StyledButton
+    tabIndex={0}
     fontSize={fontSize}
     active={id === activeId}
     onClick={() => callback(id)}
+    onKeyPress={() => callback(id)}
   >
     <span>{text}</span>
   </StyledButton>

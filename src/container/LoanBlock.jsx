@@ -57,6 +57,7 @@ const LoanBlock = ({
   return (
     <StyledLoad>
       <InputBlock
+        tabIndex={0}
         text="Location"
         infoText="Your ZIP code."
         initialValue={paramsState.zipCode}
@@ -71,6 +72,7 @@ const LoanBlock = ({
         callback={loanTermHandler}
       />
       <InputBlock
+        tabIndex={0}
         text="Trade-In"
         infoText={tradeInInfo}
         sign="$"
@@ -80,6 +82,7 @@ const LoanBlock = ({
         callback={tradeInHandler}
       />
       <InputBlock
+        tabIndex={0}
         text="Down Payment"
         infoText={downPaymentInfo}
         sign="$"
@@ -89,6 +92,7 @@ const LoanBlock = ({
         callback={downPaymentHandler}
       />
       <InputBlock
+        tabIndex={0}
         text="APR"
         infoText={APRInfo}
         sign="%"
@@ -96,6 +100,7 @@ const LoanBlock = ({
         callback={aprHandler}
       />
       <ButtonBlock
+        tabIndex={0}
         text="Credit Score"
         infoText={creditScoreInfo}
         buttons={creditScoreValues}
