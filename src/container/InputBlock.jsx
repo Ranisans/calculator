@@ -6,7 +6,6 @@ import StyledBlock from './StyledBlock';
 import Input from '../component/Input';
 import InfoIcon from '../component/InfoIcon';
 
-
 const InputBlock = ({
   text,
   infoText,

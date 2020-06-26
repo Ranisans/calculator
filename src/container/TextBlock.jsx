@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-
 import StyledBlock from './StyledBlock';
 import Paragraph from '../component/Paragraph';
 import InfoIcon from '../component/InfoIcon';
@@ -13,13 +12,15 @@ const SpinnerContainer = styled.div`
   height: 30px;
 `;
 
-const TextBlock = ({
-  text,
-  infoText,
-  sign = '',
-  value,
-  isCalculating = false,
-}) => (
+const TextBlock = (
+  {
+    text,
+    infoText,
+    sign = '',
+    value,
+    isCalculating = false,
+  },
+) => (
   <StyledBlock>
     <div className="info">
       {text}

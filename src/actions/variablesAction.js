@@ -5,7 +5,6 @@ export const CHANGE_APR = 'CHANGE_APR';
 export const CHANGE_MSRP = 'CHANGE_MSRP';
 export const CHANGE_SCORE = 'CHANGE_SCORE';
 
-
 export const changeTradeIn = ({ value }) => (
   {
     type: CHANGE_TRADE_IN,
@@ -40,7 +39,6 @@ export const changeMSRP = ({ value }) => (
     value,
   }
 );
-
 
 export const changeScore = ({ score }) => (
   {

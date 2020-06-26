@@ -131,5 +131,4 @@ InfoCard.propTypes = {
   creditRate: PropTypes.objectOf(PropTypes.number.isRequired).isRequired,
 };
 
-
 export default InfoCard;

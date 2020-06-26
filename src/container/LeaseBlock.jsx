@@ -15,7 +15,6 @@ import {
 } from '../infoText';
 import maxDiscountCalculation from '../logic/maxDiscountCalculation';
 
-
 const StyledLease = styled.div`
   display: grid;
   margin-top: 10px;
@@ -106,7 +105,6 @@ const LeaseBlock = ({
     </StyledLease>
   );
 };
-
 
 LeaseBlock.propTypes = {
   leaseTermValues: PropTypes.arrayOf(PropTypes.shape({

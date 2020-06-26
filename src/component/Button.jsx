@@ -16,7 +16,6 @@ const StyledButton = styled.div`
   box-sizing: border-box;
 `;
 
-
 const Button = (
   {
     id, text, activeId, fontSize = 1.2, callback,
