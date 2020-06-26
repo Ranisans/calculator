@@ -7,13 +7,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-
 module.exports = (env, args) => {
   const config = {
     entry: './src/index.jsx',
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, './dist'),
+      path: path.resolve(__dirname, './build'),
     },
     module: {
       rules: [
@@ -103,7 +102,7 @@ module.exports = (env, args) => {
       }),
     ],
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'build'),
       compress: true,
       port: 3000,
       stats: 'errors-only',
@@ -113,6 +112,11 @@ module.exports = (env, args) => {
 
   if (args.mode === 'development') {
     config.devtool = 'cheap-module-eval-source-map';
+  } else if (args.mode === 'none') {
+    config.optimization = {
+      minimize: true,
+      minimizer: [new TerserPlugin()],
+    };
   } else {
     config.plugins.push(new BundleAnalyzerPlugin());
     config.optimization = {
