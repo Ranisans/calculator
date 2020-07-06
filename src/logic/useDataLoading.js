@@ -13,7 +13,6 @@ const useDataLoading = () => {
   const [error, setError] = useState('');
 
   const dispatch = useDispatch();
-  const accessToken = '399f855ae7c9ae';
 
   const fillDictionary = (resultMockData) => {
     const dictionary = {};
@@ -52,11 +51,7 @@ const useDataLoading = () => {
     Promise.resolve(mockData).then((resultMockData) => {
       const dictionary = fillDictionary(resultMockData);
       setData(dictionary);
-    }).then(() => fetch(`https://cors-anywhere.herokuapp.com/https://ipinfo.io/json?token=${accessToken}`, {
-      mode: 'cors',
-      headers: { 'Access-Control-Allow-Origin': '*', Accept: 'application/json' },
-    }))
-      .then((result) => result.json())
+    }).then(() => ({ postal: 125541 }))
       .then((result) => {
         const { postal } = result;
         dispatch(changeZip({ zipCode: postal }));

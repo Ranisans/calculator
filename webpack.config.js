@@ -112,7 +112,7 @@ module.exports = (env, args) => {
 
   if (args.mode === 'development') {
     config.devtool = 'cheap-module-eval-source-map';
-  } else if (args.mode === 'none') {
+  } else if (args.mode === 'production') {
     config.optimization = {
       minimize: true,
       minimizer: [new TerserPlugin()],
